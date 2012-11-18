@@ -9,14 +9,17 @@ module Pv
     desc :log,  "Show every story assigned to you on this project."
     def log
       Pv.tracker.stories.each do |story|
-        say "[#{story.id}] #{story.name} < #{story.requested_by} >"
+        id = set_color "#{story.id}", Thor::Shell::Color::YELLOW
+        author = set_color story.requested_by, Thor::Shell::Color::WHITE
+
+        say "* #{id} #{story.name} #{author}"
       end
     end
 
     desc "show STORY_ID", "Show the full text and attributes of a story on this project."
     def show story_id
       sha = Digest::HMAC.hexdigest story_id.to_s, Time.now.to_s, Digest::SHA1
-      story = File.write "/tmp/story-#{sha}", Story.find(story_id).render
+      File.write "/tmp/story-#{sha}", Story.find(story_id).render
       run "less -R /tmp/story-#{sha}"
       run "rm -rf /tmp/story-#{sha}"
     end
