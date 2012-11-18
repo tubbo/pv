@@ -12,7 +12,7 @@ module Pv
     end
 
     def self.find by_id
-      new Pv.tracker.stories.find(by_id).first
+      new Pv.tracker.stories.select { |s| s.id == by_id.to_i }.first
     end
 
     # Render this Story in plain text.
