@@ -21,20 +21,19 @@ module Pv
       run "rm -rf /tmp/story-#{sha}"
     end
 
-    desc "edit STORY_ID", "Edit a story's status on this project."
-    method_option :status, default: '', alias: 's'
-    method_option :message, default: "", alias: 'm'
-    def edit story_id
+    desc "edit STORY_ID STATUS", "Edit a story's status on this project."
+    #method_option :message, default: "", alias: 'm'
+    def edit story_id, status
       story = Story.find story_id
-      story.update(status: options[:status]) unless options[:status].blank?
-      story.comment! options[:message] unless options[:message].blank?
+      unless story.update(status)
+        run "Error: Story did not update."
+      end
     end
 
     %w(start finish deliver accept reject restart).each do |status|
       desc "#{status} STORY_ID", "#{status.titleize} a story on this project."
       define_method(status) do |story_id|
-        options[:status] = status
-        edit(story_id)
+        edit(story_id, "#{status}ed")
       end
     end
 

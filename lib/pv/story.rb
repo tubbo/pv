@@ -2,8 +2,10 @@ module Pv
   class Story
     attr_accessor :story_type, :requested_by, :owned_by, :current_state,
                   :name, :description, :estimate, :id
+    attr_reader :pivotal_story
 
     def initialize from_pivotal_story
+      @pivotal_story = from_pivotal_story
       %w(id story_type requested_by owned_by current_state name description estimate).each do |attr|
         self.send "#{attr}=", from_pivotal_story.send(attr)
       end
@@ -18,6 +20,10 @@ module Pv
       source = IO.read "./lib/templates/story.txt.erb"
       template = ERB.new(source)
       template.result(binding)
+    end
+
+    def update(status)
+      @pivotal_story.update(current_state: status)
     end
   end
 end
