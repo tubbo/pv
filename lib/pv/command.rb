@@ -3,6 +3,8 @@ require 'active_support/all'
 
 module Pv
   class Command < Thor
+    include Thor::Actions
+
     default_task :log
     desc :log,  "Show every story assigned to you on this project."
     def log
@@ -13,7 +15,8 @@ module Pv
 
     desc "show STORY_ID", "Show the full text and attributes of a story on this project."
     def show story_id
-      Story.find(story_id).render
+      story = File.write "/tmp/story", Story.find(story_id).render
+      run "less -R /tmp/story"
     end
 
     desc "edit STORY_ID", "Edit a story's status on this project."
