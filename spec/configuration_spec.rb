@@ -3,7 +3,11 @@ require 'pv/configuration'
 module Pv
   describe Configuration do
     before do
-      `cp spec/fixtures/pv.yml ~/.pv` unless File.exists? "~/.pv"
+      if File.exists? File.expand_path("~/.pv")
+        `cp ~/.pv ~/.pv.safe`
+      end
+
+      `cp spec/fixtures/pv.yml ~/.pv`
     end
 
     subject { Pv::Configuration.new }
@@ -20,6 +24,12 @@ module Pv
 
     it "parses a password" do
       subject.password.should == "password"
+    end
+
+    after do
+      if File.exists? File.expand_path("~/.pv.safe")
+        `cp ~/.pv.safe ~/.pv`
+      end
     end
   end
 end
