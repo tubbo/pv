@@ -1,9 +1,10 @@
 require 'rubygems'
 require 'bundler'
 
-Bundler.require :default
+Bundler.require :default, :test
 
-VCR.config do |c|
+VCR.configure do |c|
   c.cassette_library_dir = 'spec/fixtures/cassettes'
-  c.stub_with :webmock
+  c.hook_into :webmock
+  c.allow_http_connections_when_no_cassette = true
 end

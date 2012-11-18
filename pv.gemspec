@@ -17,9 +17,5 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
 
-  gem.add_development_dependency 'rspec'
-  gem.add_development_dependency 'vcr'
-  gem.add_development_dependency 'webmock'
-  
   gem.add_dependency 'pivotal-tracker'
 end

@@ -1,0 +1,74 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://www.pivotaltracker.com/services/v3/tokens/active
+    body:
+      encoding: US-ASCII
+      string: username=necromancer&password=2AUcBXdL3EYq8E87vJA3qAUNN
+    headers:
+      Accept:
+      - ! '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Length:
+      - '55'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: !binary |-
+        T0s=
+    headers:
+      !binary "Q29udGVudC1UeXBl":
+      - !binary |-
+        YXBwbGljYXRpb24veG1sOyBjaGFyc2V0PXV0Zi04
+      !binary "VHJhbnNmZXItRW5jb2Rpbmc=":
+      - !binary |-
+        Y2h1bmtlZA==
+      !binary "Q29ubmVjdGlvbg==":
+      - !binary |-
+        Y2xvc2U=
+      !binary "U3RhdHVz":
+      - !binary |-
+        MjAw
+      !binary "WC1Qb3dlcmVkLUJ5":
+      - !binary |-
+        UGh1c2lvbiBQYXNzZW5nZXIgKG1vZF9yYWlscy9tb2RfcmFjaykgMy4wLjE0
+      !binary "Q2FjaGUtQ29udHJvbA==":
+      - !binary |-
+        cHJpdmF0ZSwgbWF4LWFnZT0wLCBtdXN0LXJldmFsaWRhdGU=
+      !binary "WC1SdW50aW1l":
+      - !binary |-
+        MTE3
+      !binary "U2V0LUNvb2tpZQ==":
+      - !binary |-
+        dF9zZXNzaW9uPUJBaDdCem9QWlhod2FYSmxjMTloZEVsMU9nbFVhVzFsRFNZ
+        ckhJRHJNR2RWQmpvZlFHMWhjbk5vWVd4ZmQybDBhRjkxZEdOZlkyOWxjbU5w
+        YjI1R09nOXpaWE56YVc5dVgybGtJaVZoTUdRNE1tTmpNbUk0TldVMk1EaG1Z
+        ekpqTkdOak9XVXhOR1V3T1RGak9RJTNEJTNELS0zZmJiYmY3MjA5MjMwNTI1
+        YTQ3N2U3ZmViNTdiNzRkZjQxZDk0ZGFmOyBwYXRoPS87IHNlY3VyZTsgSHR0
+        cE9ubHk=
+      !binary "RXRhZw==":
+      - !binary |-
+        ImQzNzdhNzkwNTE3MTNiYTE3MDliNjNhMzEzNWU5MWY1Ig==
+      !binary "U2VydmVy":
+      - !binary |-
+        bmdpbngvMS4yLjIgKyBQaHVzaW9uIFBhc3NlbmdlciAzLjAuMTQgKG1vZF9y
+        YWlscy9tb2RfcmFjayk=
+      !binary "Q29udGVudC1FbmNvZGluZw==":
+      - !binary |-
+        Z3ppcA==
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAAy3MQQ7CIBAAwHtfQbgr3cJWTIDefIF+wO5CiAqmotHfmxrv
+        k3HT+3YVL14euRYvYdtLwWWulEvy8nQ8bKycQudavXAJnRAuPTMFBNTnmUY0
+        cW8sIEc2o8aBIpHesXXqx1afSbTPnb3MpXHiRQaAfkBwagVO/ecvVvIujYkA
+        AAA=
+    http_version: 
+  recorded_at: Sun, 18 Nov 2012 06:21:24 GMT
+recorded_with: VCR 2.3.0

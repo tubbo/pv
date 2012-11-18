@@ -11,7 +11,7 @@ module Pv
     it "reads from ~/.pv YAML" do
       subject.should be_present
       subject.attributes.should_not be_empty
-      subject.attributes.count.should == 2
+      subject.attributes.count.should == 3
     end
 
     it "parses a username" do
