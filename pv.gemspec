@@ -8,12 +8,14 @@ Gem::Specification.new do |gem|
   gem.version       = Pv::VERSION
   gem.authors       = ["Tom Scott"]
   gem.email         = ["tubbo@psychedeli.ca"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
-  gem.homepage      = ""
+  gem.description   = %q{A command-line interface to Pivotal Tracker.}
+  gem.summary       = %q{A command-line interface to Pivotal Tracker.}
+  gem.homepage      = "http://github.com/tubbo/pv"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
+
+  gem.add_development_dependency 'rspec'
 end
