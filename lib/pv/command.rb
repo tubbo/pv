@@ -6,6 +6,9 @@ module Pv
     default_task :log
     desc :log,  "Show every story assigned to you on this project."
     def log
+      Pv.tracker.stories.each do |story|
+        say "[#{story.id}] #{story.name} < #{story.requested_by} >"
+      end
     end
 
     desc "show STORY_ID", "Show the full text and attributes of a story on this project."
