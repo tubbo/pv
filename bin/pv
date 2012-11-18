@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
+$LOAD_PATH << File.expand_path('./lib')
+
 require 'pv'
 
-Pv::Command.start!
+Pv::Command.start
