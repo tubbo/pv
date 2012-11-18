@@ -15,8 +15,10 @@ module Pv
 
     desc "show STORY_ID", "Show the full text and attributes of a story on this project."
     def show story_id
-      story = File.write "/tmp/story", Story.find(story_id).render
-      run "less -R /tmp/story"
+      sha = Digest::HMAC.hexdigest story_id.to_s, Time.now.to_s, Digest::SHA1
+      story = File.write "/tmp/story-#{sha}", Story.find(story_id).render
+      run "less -R /tmp/story-#{sha}"
+      run "rm -rf /tmp/story-#{sha}"
     end
 
     desc "edit STORY_ID", "Edit a story's status on this project."
