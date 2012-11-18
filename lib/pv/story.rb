@@ -17,7 +17,7 @@ module Pv
 
     # Render this Story in plain text.
     def render
-      source = IO.read "./lib/templates/story.txt.erb"
+      source = IO.read "#{Pv.root}/lib/templates/story.txt.erb"
       template = ERB.new(source)
       template.result(binding)
     end

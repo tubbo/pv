@@ -12,4 +12,11 @@ module Pv
   def self.tracker
     @tracker ||= Pv::BugTracker.new
   end
+
+  def self.root
+    @root ||= begin
+      spec = Gem::Specification.find_by_name 'pv'
+      spec.gem_dir
+    end
+  end
 end
