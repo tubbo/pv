@@ -21,7 +21,8 @@ module Pv
       user = and_full_name || Pv.config.name
 
       project = PivotalTracker::Project.all.select { |p| p.id == project_id }.first
-      project.stories.all(owned_by: user)
+
+      project.stories.all(owned_by: user).reject { |s| s.current_state =~ /accepted|delivered/ }
     end
   end
 end
