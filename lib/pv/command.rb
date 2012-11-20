@@ -42,20 +42,7 @@ module Pv
 
     desc :help, "Show all commands"
     def help
-      say <<-TEXT
-
-pv: pivotal tracker in the shell
-
-  A simple command-line interface for Pivotal Tracker.
-  Configure in ~/.pv:
-
-    username: 'your-username'
-    password: 'secret'
-    project_id: 123456
-
-  Then use the following commands to manage your project:
-TEXT
-      say "\n"
+      say IO.read("#{Pv.root}/lib/templates/help.txt")
       super
     end
   end

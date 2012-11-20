@@ -1,0 +1,11 @@
+
+pv: pivotal tracker in the shell
+
+  A simple command-line interface for Pivotal Tracker.
+  Configure in ~/.pv:
+
+  username: 'your-username'
+  password: 'secret'
+  project_id: 123456
+
+  Then use the following commands to manage your project:
