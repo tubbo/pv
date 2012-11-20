@@ -1,3 +1,5 @@
+require 'core_ext/string'
+
 require 'pv/configuration'
 require 'pv/command'
 require 'pv/version'
