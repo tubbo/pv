@@ -1,4 +1,5 @@
 require 'core_ext/string'
+require 'core_ext/object'
 
 require 'pv/configuration'
 require 'pv/command'

@@ -1,5 +1,4 @@
 require 'thor'
-require 'active_support/all'
 
 module Pv
   class Command < Thor

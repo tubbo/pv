@@ -1,3 +1,5 @@
+require 'core_ext/object'
+
 module Pv
   class Story
     attr_accessor :story_type, :requested_by, :owned_by, :current_state,
@@ -13,6 +15,10 @@ module Pv
 
     def self.find by_id
       new Pv.tracker.stories.select { |s| s.id == by_id.to_i }.first
+    end
+
+    def self.present?
+      not nil?
     end
 
     # Render this Story in plain text.

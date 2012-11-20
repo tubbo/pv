@@ -1,5 +1,6 @@
 require 'spec_helper'
 require 'pv/story'
+require 'core_ext/object'
 
 module Pv
   describe Story do

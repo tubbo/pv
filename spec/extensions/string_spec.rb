@@ -8,7 +8,7 @@ describe String do
       subject.titleize.should == "Not Yet Started"
     end
 
-    it "returns the same string if no words are found" do
+    it "returns a blank string if that's what was given" do
       subject = " "
 
       subject.titleize.should be_blank
@@ -37,7 +37,7 @@ describe String do
     it "returns 'true' if spaces exist" do
       subject = " "
 
-      subject.should be_blank
+      subject.should_not be_blank
     end
   end
 end
