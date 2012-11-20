@@ -19,6 +19,4 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency 'pivotal-tracker'
   gem.add_dependency 'thor'
-  gem.add_dependency 'active_support'
-  gem.add_dependency 'i18n'
 end
