@@ -15,15 +15,23 @@ module Pv
     it "reads from ~/.pv YAML" do
       subject.should be_present
       subject.attributes.should_not be_empty
-      subject.attributes.count.should == 3
+      subject.attributes.count.should == 4
     end
 
     it "parses a username" do
-      subject.username.should == "john@doe.com"
+      subject.username.should == "johndoe"
     end
 
     it "parses a password" do
       subject.password.should == "password"
+    end
+
+    it "parses a full name" do
+      subject.name.should == "John Doe"
+    end
+
+    it "parses a project id into a number" do
+      subject.project_id.should == 123456
     end
 
     after do
