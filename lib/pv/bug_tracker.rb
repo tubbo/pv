@@ -1,4 +1,4 @@
-require 'pivotal_tracker'
+require 'pivotal-tracker'
 
 module Pv
   class BugTracker

@@ -17,6 +17,7 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
 
-  gem.add_dependency 'pivotal-tracker'
+  gem.add_dependency 'pivotal-tracker', '0.8.10'
   gem.add_dependency 'thor'
+  gem.add_dependency 'nokogiri-happymapper'
 end

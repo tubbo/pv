@@ -30,6 +30,13 @@ module Pv
       template.result(binding)
     end
 
+    # This story is "in progress" if its code has not left
+    # the dev machine, or is on stage and hasn't been pushed
+    # to production yet.
+    def in_progress?
+      current_state =~ /finished/
+    end
+
     # Update the current status of a Story.
     def update(status)
       @pivotal_story.update(current_state: status)

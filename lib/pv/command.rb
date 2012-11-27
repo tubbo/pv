@@ -7,11 +7,8 @@ module Pv
     default_task :log
     desc :log,  "Show every story assigned to you on this project."
     def log
-      Pv.tracker.stories.each do |story|
-        id = set_color "#{story.id}", Thor::Shell::Color::YELLOW
-        author = set_color story.requested_by, Thor::Shell::Color::WHITE
-
-        say "* #{id} #{story.name} #{author}"
+      Pv.tracker.stories.each do |from_data|
+        preview Story.new(from_data)
       end
     end
 
@@ -64,6 +61,22 @@ module Pv
     desc "open STORY_ID", "Open this Pivotal story in a browser"
     def open story_id
       run "open https://www.pivotaltracker.com/story/show/#{story_id}"
+    end
+
+  private
+    no_tasks do
+      def preview story
+        id = set_color "#{story.id}", Thor::Shell::Color::YELLOW
+        author = set_color story.requested_by, Thor::Shell::Color::WHITE
+        status = if story.in_progress?
+          set_color " (#{story.current_state})", Thor::Shell::Color::BLUE
+        else
+          ""
+        end
+        prefix = "* #{id}" + status
+
+        say "#{prefix} #{story.name} #{author}"
+      end
     end
   end
 end
