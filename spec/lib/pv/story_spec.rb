@@ -18,5 +18,10 @@ module Pv
       subject.render.should_not be_blank
       subject.render.should =~ /Assigned To:/
     end
+
+    it "reports as being in progress" do
+      subject.update("started")
+      subject.should be_in_progress
+    end
   end
 end

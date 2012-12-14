@@ -34,7 +34,11 @@ module Pv
     # the dev machine, or is on stage and hasn't been pushed
     # to production yet.
     def in_progress?
-      current_state =~ /finished/
+      if current_state =~ /started|finished/
+        true
+      else
+        false
+      end
     end
 
     # Update the current status of a Story.
