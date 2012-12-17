@@ -5,8 +5,7 @@ module Pv
     attr_reader :username, :password, :attributes, :project_id, :name
 
     def initialize
-      @path = File.expand_path "~/.pv"
-      @attributes = YAML::load_file @path
+      @attributes = YAML::load_file from_path
       @username = @attributes['username']
       @password = @attributes['password']
       @project_id = @attributes['project_id']
@@ -14,7 +13,20 @@ module Pv
     end
 
     def present?
-      File.exists? @path
+      File.exists? from_path
+    end
+
+  private
+    def from_path
+      File.expand_path yaml_file_location
+    end
+
+    def yaml_file_location
+      if File.exists? "#{Dir.pwd}/.pv"
+        "#{Dir.pwd}/.pv"
+      else
+        "~/.pv"
+      end
     end
   end
 end
