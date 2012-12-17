@@ -23,10 +23,8 @@ module Pv
       @token.present?
     end
 
-    # Find stories filtered by this username.
-    def stories by_user_name=nil
-      user = by_user_name || Pv.config.name
-      @project.stories.all(owned_by: user).reject { |s| s.current_state =~ /accepted|delivered/ }
+    def stories
+      Pv::Stories.from @project
     end
   end
 end

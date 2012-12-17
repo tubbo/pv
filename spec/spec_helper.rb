@@ -3,7 +3,8 @@ require 'bundler' and Bundler.setup
 require 'pv'
 require 'pivotal-tracker'
 require 'thor'
-require 'nokogiri-happymapper'
+require 'happymapper'
+require 'vcr'
 
 VCR.configure do |c|
   c.cassette_library_dir = 'spec/fixtures/cassettes'
