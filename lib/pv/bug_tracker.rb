@@ -6,6 +6,8 @@ module Pv
 
     # Connect to Pivotal Tracker
     def initialize with_username=nil, and_password=nil, and_project_id=nil
+      raise "Configuration not found" unless Pv.config.present?
+
       @username = with_username || Pv.config.username
       @password = and_password  || Pv.config.password
       @token = PivotalTracker::Client.token(username, password)
@@ -14,6 +16,8 @@ module Pv
         project_id = and_project_id || Pv.config.project_id
         PivotalTracker::Project.all.select { |p| p.id == project_id }.first if @token.present?
       end
+
+      raise "Project ##{and_project_id} not found." if @project.nil?
 
       PivotalTracker::Client.use_ssl = true
     end
