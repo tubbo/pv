@@ -1,10 +1,5 @@
-require 'rubygems'
-require 'bundler' and Bundler.setup
-require 'pv'
-require 'pivotal-tracker'
-require 'thor'
-require 'happymapper'
-require 'vcr'
+require 'bundler'
+Bundler.require :default, :test
 
 VCR.configure do |c|
   c.cassette_library_dir = 'spec/fixtures/cassettes'
