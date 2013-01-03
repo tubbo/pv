@@ -6,7 +6,7 @@ module Pv
   describe Story do
     subject do
       VCR.use_cassette :pivotal_find_story do
-        Story.find(39415599)
+        Story.find 41869157
       end
     end
 
